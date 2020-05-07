@@ -13,9 +13,9 @@ port:3000 || process.env.port
 
 server.route({
   method: 'GET',
-  path: '/',
-  handler: (request, reply) => {
-    reply('Hello, world!');
+  path: '/helloworld',
+  handler: function (request, h) {
+    return 'hello world';
   }
 });
 
