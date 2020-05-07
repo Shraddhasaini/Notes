@@ -25,7 +25,9 @@ server.route(Routes);
 //}
 //});
 
-server.start((err) => {
-  Hoek.assert(!err, err);
-  console.log(`Server running at: ${server.info.uri}`);
+Models.sequelize.sync().then(() => {
+  server.start((err) => {
+    Hoek.assert(!err, err);
+    console.log(`Server running at: ${server.info.uri}`);
+  });
 });
