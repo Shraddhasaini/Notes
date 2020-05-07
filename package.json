@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/Shraddhasaini/Notes/issues"
   },
-  "homepage": "https://github.com/Shraddhasaini/Notes#readme"
+  "homepage": "https://github.com/Shraddhasaini/Notes#readme",
+  "dependencies": {
+    "hapi": "^18.1.0",
+    "hoek": "^6.1.3"
+  }
 }
