@@ -18,7 +18,6 @@
   },
   "homepage": "https://github.com/Shraddhasaini/Notes#readme",
   "dependencies": {
-    "hapi": "^18.1.0",
     "hoek": "^6.1.3"
   }
 }
