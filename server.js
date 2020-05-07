@@ -1,6 +1,7 @@
-const Routes = require('./lib/routes');
 'use strict';
 
+const Routes = require('./lib/routes');
+const Models = require('./lib/models/');
 const Hapi = require('hapi');
 const Hoek = require('hoek');
 const Settings = require('./settings');
