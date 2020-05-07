@@ -1,6 +1,7 @@
 'use strict';
 
 const Routes = require('./lib/routes');
+const Home = require('./controllers/home');
 const Models = require('./lib/models/');
 const Hapi = require('hapi');
 const Hoek = require('hoek');
