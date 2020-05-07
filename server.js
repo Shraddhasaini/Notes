@@ -15,8 +15,10 @@ server.route({
   method: 'GET',
   path: '/helloworld',
   handler: function (request, h) {
-    return 'hello world';
-  }
+  const response = h.response('hello world');
+  response.type('text/plain');
+  return response;
+}
 });
 
 server.start((err) => {
