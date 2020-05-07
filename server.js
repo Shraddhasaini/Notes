@@ -5,7 +5,7 @@ const Hapi = require("@hapi/hapi");
 const Path = require("path");
 const Settings = require("./settings");
 const Routes = require("./lib/routes");
-const Models = require("./lib/model/");
+const Models = require("./lib/models/");
 
 const init = async () => {
  const server = new Hapi.Server({ port: Settings.port });
