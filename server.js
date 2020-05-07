@@ -1,3 +1,4 @@
+const Routes = require('./lib/routes');
 'use strict';
 
 const Hapi = require('hapi');

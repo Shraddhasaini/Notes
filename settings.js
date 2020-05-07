@@ -2,6 +2,8 @@
 // IMPORTANT: Omit this line if you don't want to use this functionality
 require('dotenv').config({silent: true});
 
+//const dbSettings = Settings[Settings.env].db;
+
 module.exports = {
   port: process.env.PORT || 3000,
   env: process.env.ENV || 'development',
