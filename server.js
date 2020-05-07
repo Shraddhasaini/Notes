@@ -4,8 +4,12 @@ const Hapi = require('hapi');
 const Hoek = require('hoek');
 const Settings = require('./settings');
 
-const server = new Hapi.Server();
-server.connection({ port: Settings.port });
+//const server = new Hapi.Server();
+//const server = server.connection({ port: Settings.port });
+
+const server = Hapi.server({
+port:3000 || process.env.port
+})
 
 server.route({
   method: 'GET',
