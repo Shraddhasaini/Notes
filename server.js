@@ -1,35 +1,38 @@
-'use strict';
 
-const Routes = require('./lib/routes');
-const Home = require('./controllers/home');
-const Models = require('./lib/models/');
-const Hapi = require('hapi');
-const Hoek = require('hoek');
-const Settings = require('./settings');
+"use strict";
 
-//const server = new Hapi.Server();
-//const server = server.connection({ port: Settings.port });
+const Hapi = require("@hapi/hapi");
+const Path = require("path");
+const Settings = require("./settings");
+const Routes = require("./lib/routes");
+const Models = require("./lib/models/");
 
-const server = Hapi.server({
-port:3000 || process.env.port
-})
+const init = async () => {
+ const server = new Hapi.Server({ port: Settings.port });
 
-server.route(Routes);
+ await server.register([require("@hapi/vision"), require("@hapi/inert")]);
 
+ server.views({
+   engines: { pug: require("pug") },
+   path: Path.join(__dirname, "lib/views"),
+   compileOptions: {
+     pretty: false
+   },
+   isCached: Settings.env === "production"
+ });
 
-//server.route({
-//  method: 'GET',
-//  path: '/helloworld',
-//  handler: function (request, h) {
-  //const response = h.response('hello world');
-  //response.type('text/plain');
-//  return response;
-//}
-//});
+ // Add routes
+ server.route(Routes);
 
-Models.sequelize.sync().then(() => {
-  server.start((err) => {
-    Hoek.assert(!err, err);
-    console.log(`Server running at: ${server.info.uri}`);
-  });
+ await Models.sequelize.sync();
+
+ await server.start();
+ console.log(`Server running at: ${server.info.uri}`);
+};
+
+process.on("unhandledRejection", err => {
+ console.log(err);
+ process.exit(1);
 });
+
+init();
