@@ -18,3 +18,12 @@ block content
     p: input(name='noteDescription' type='text' value=note.description)
     p: textarea(name='noteContent')= note.content
     p._text-right: input(type='submit' value='Update')
+
+    const newNote = Pug.renderFile(
+    Path.join(__dirname, '../views/components/note.pug'),
+    {
+      note: result
+    }
+  );
+
+  reply(newNote);
