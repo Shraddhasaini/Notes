@@ -12,15 +12,17 @@ const server = Hapi.server({
 port:3000 || process.env.port
 })
 
-server.route({
-  method: 'GET',
-  path: '/helloworld',
-  handler: function (request, h) {
-  const response = h.response('hello world');
-  response.type('text/plain');
-  return response;
-}
-});
+server.route(Routes);
+
+//server.route({
+//  method: 'GET',
+//  path: '/helloworld',
+//  handler: function (request, h) {
+  //const response = h.response('hello world');
+  //response.type('text/plain');
+//  return response;
+//}
+//});
 
 server.start((err) => {
   Hoek.assert(!err, err);
