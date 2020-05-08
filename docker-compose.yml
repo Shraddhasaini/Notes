@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+  mvcapp:
+    image: nodemvc
+    build: . #loc of dockerfile
+    container_name: nodemvcc1 #optional
+    ports:
+      - "80:8080"
