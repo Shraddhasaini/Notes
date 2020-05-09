@@ -5,4 +5,4 @@ services:
     build: . #loc of dockerfile
     container_name: nodemvcc1 #optional
     ports:
-      - "3006:3006"
+      - "3003:3003"
