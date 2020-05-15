@@ -1,5 +1,5 @@
 "use strict";
-
+//npm install
 const Hapi = require("@hapi/hapi");
 const Path = require("path");
 const Settings = require("./settings");
